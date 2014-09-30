@@ -13,11 +13,7 @@ public class PercentOffDiscount implements DiscountStrategy {
     private double discountPercent;
     private int Qty;
 
-    public PercentOffDiscount(double discountPercent, int Qty) {
-        this.discountPercent = discountPercent;
-        this.Qty = Qty;
-    }
-
+    
     
 
     

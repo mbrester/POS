@@ -13,10 +13,7 @@ public class QuanityDiscount implements DiscountStrategy {
     private double discount;
     private int Qty;
     
-    public QuanityDiscount(int qty){
-        
-        this.setQty(qty);
-    }
+   
     
 
     @Override

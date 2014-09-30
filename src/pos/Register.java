@@ -14,10 +14,10 @@ public class Register {
     private DiscountManager discount;
     private ReceiptManager receipt;
     private String itemNumber;
+    private Product product;
     private String custID;
     private int qty;
-    private double itemPrice;
-    private String itemName;
+    
     private String custName;
 
     public Register( String itemNumber, String custID, int qty) {
@@ -40,21 +40,10 @@ public class Register {
     
     public void lookupItemPriceAndName(){
         
-        for(int i=0; i < 3;i++){
-            
-            if(this.itemNumber.equals(this.dB.itemNumbers[i])){
-                this.itemName = dB.getItemNames(i);
-                this.itemPrice = dB.getItemPrices(i);
-                break;
-            }
-            
-            
-            
+       product =  dB.findProduct(itemNumber);
+         
         }
-             if(this.itemName == null){
-          throw new IllegalArgumentException(
-                    "Item Number does not exist in our DataBase.");
-            }
+             
     }
     
     public void lookupCustomerName(){

@@ -10,28 +10,28 @@ package pos;
  * @author Mitch
  */
 public class FakeDB {
-    public String[] itemNumbers = {"111","112","113"};
-    private String[] itemNames = {"White T-shirt","Hat","Shoes"};
-    private double[] itemPrices = {10.00,15.95,35.00};
-    
+     private Product [] products = {
+        new Product("111","Baseball ", 5.00 , new PercentOffDiscount()),
+        new Product("112", "Football", 10.00, new FlatRateDiscount()),
+        new Product ("113", "Hockey Stick", 25.00, new PercentOffDiscount())
+    };
+    Product product;
+    public Product findProduct(String productId){
+        for (Product p : products){
+            if(productId.equals(product.getItemNumber())){
+                product = p;
+                break;
+            }
+                
+        }
+        return product;
+    }
     
     
     public String[] custID = {"aaa","bbb","ccc"};
     private String[] custName = {"Bob","Tom","Rob"};
 
-    public  String getItemNumber(int i)
-    {
-        System.out.println(i);
-        return itemNumbers[i];
-    }
-
-    public String getItemNames(int i) {
-        return itemNames[i];
-    }
-
-    public double getItemPrices(int i) {
-        return itemPrices[i];
-    }
+    
 
     public String getCustID(int i) {
         return custID[i];

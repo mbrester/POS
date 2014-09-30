@@ -15,12 +15,7 @@ public class NoDiscount  implements DiscountStrategy{
     private int Qty;
     private double itemPrice;
     
-    public NoDiscount(int qty, double price){
-        
-        this.setQty(qty);
-        this.setItemPrices(price);
-        
-    }
+    
 
     @Override
     public double dicountItems() {

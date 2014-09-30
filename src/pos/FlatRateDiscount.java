@@ -13,9 +13,7 @@ public class FlatRateDiscount implements DiscountStrategy {
     private double discount;
     private int Qty;
     
-     public FlatRateDiscount(int qty){
-        this.setQty(qty);
-    }
+     
 
     
     public void setDiscount(double discount) {
