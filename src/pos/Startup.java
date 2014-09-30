@@ -16,15 +16,9 @@ public class Startup {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Register cust1 = new Register("111","aaa",2);
+        Register cust1 = new Register(new Receipt(new ConsoleReceipt("111","aaa",2)));
+        cust1.getReceipt();
         
-//        System.out.println(cust1.getItemNumber());
-//        System.out.println(cust1.getCustID());
-        cust1.lookupCustomerName();
-        System.out.println(cust1.getCustName());
-        cust1.lookupItemPriceAndName();
-        System.out.println(cust1.getItemName());
-        System.out.println(cust1.getItemPrice());
     }
     
 }

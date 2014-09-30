@@ -11,21 +11,16 @@ package pos;
  */
 public class QuanityDiscount implements DiscountStrategy {
     private double discount;
-    private int Qty;
+
+    @Override
+    public double getDiscountedPrice(double itemPrice) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+   
     
    
     
 
-    @Override
-    public double dicountItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-
-
-    @Override
-    public void setQty(int qty) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }

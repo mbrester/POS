@@ -10,8 +10,8 @@ package pos;
  * @author Mitch
  */
 public interface DiscountStrategy {
-    public double dicountItems();
-    public void setQty(int qty);
+    public double getDiscountedPrice(double itemPrice);
+    
     
     
 }

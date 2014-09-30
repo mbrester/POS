@@ -11,27 +11,13 @@ package pos;
  */
 public class NoDiscount  implements DiscountStrategy{
 
-    private double discount;
-    private int Qty;
-    private double itemPrice;
-    
-    
-
     @Override
-    public double dicountItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getDiscountedPrice(double itemPrice) {
+        
+        return itemPrice;
     }
 
-    @Override
-    public void setQty(int qty) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setItemPrices(double itemPrice) {
-        if(itemPrice < 0.00){
-            throw new IllegalArgumentException("Item price must be greater than 0");
-        }
-        this.itemPrice = itemPrice;
-    }
+   
+  
     
 }

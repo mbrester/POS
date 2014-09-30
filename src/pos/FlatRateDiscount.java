@@ -11,28 +11,31 @@ package pos;
  */
 public class FlatRateDiscount implements DiscountStrategy {
     private double discount;
-    private int Qty;
+
+    public FlatRateDiscount(double discount) {
+        this.discount = discount;
+    }
+    
     
      
 
-    
+    /**
+     * This is the setter for discount
+     * @param discount the amount that is discounted, it is a flat rate.
+     */
     public void setDiscount(double discount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.discount = discount;
     }
 
     
     public double getDiscount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return discount;
     }
 
     @Override
-    public double dicountItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setQty(int qty) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getDiscountedPrice(double itemPrice) {
+        itemPrice += -discount;
+        return itemPrice;
     }
     
 }

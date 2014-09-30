@@ -11,15 +11,13 @@ package pos;
  */
 public class PercentOffDiscount implements DiscountStrategy {
     private double discountPercent;
-    private int Qty;
 
+    public PercentOffDiscount(double discountPercent) {
+        this.discountPercent = discountPercent;
+    }
     
     
 
-    
-    
-    
-   
     public double getDiscountPercent() {
         return discountPercent;
     }
@@ -27,18 +25,14 @@ public class PercentOffDiscount implements DiscountStrategy {
     public void setDiscountPercent(double discountPercent) {
         this.discountPercent = discountPercent;
     }
+
+    @Override
+    public double getDiscountedPrice(double itemPrice) {
+        return itemPrice * discountPercent;
+    }
     
    
     
 
-    @Override
-    public double dicountItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setQty(int qty) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

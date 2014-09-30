@@ -10,42 +10,62 @@ package pos;
  * @author mbrester1
  */
 public class Product {
-    private String itemNumber;
-    private String itemName;
-    private double itemPrice;
+    private String productNumber;
+    private String productName;
+    private double productPrice;
     private DiscountStrategy dS;
+    private double discountedPrice;
 
     public Product(String itemNumber, String itemName, double itemPrice, DiscountStrategy dS) {
-        this.itemNumber = itemNumber;
-        this.itemName = itemName;
-        this.itemPrice = itemPrice;
+        this.productNumber = itemNumber;
+        this.productName = itemName;
+        this.productPrice = itemPrice;
         this.dS = dS;
+        dicountItems();
     }
 
     
 
-    public String getItemNumber() {
-        return itemNumber;
+    public String getProductNumber() {
+        
+        return productNumber;
     }
 
-    public void setItemNumber(String itemNumber) {
-        this.itemNumber = itemNumber;
+    public void setProductNumber(String productNumber) {
+        if(productNumber == null || productName.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+        this.productNumber = productNumber;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setProductName(String productName) {
+        if(productName == null || productName.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+        this.productName = productName;
     }
 
-    public double getItemPrice() {
-        return itemPrice;
+    public double getProductPrice() {
+        return productPrice;
     }
 
-    public void setItemPrice(double itemPrice) {
-        this.itemPrice = itemPrice;
+    public void setProductPrice(double productPrice) {
+        if(productPrice < 5 ){
+            throw new IllegalArgumentException();
+        }
+        this.productPrice = productPrice;
+    }
+    private void dicountItems(){
+      this.discountedPrice = dS.getDiscountedPrice(productPrice);
+      
+    }
+
+    public double getDiscountedPrice() {
+        return discountedPrice;
     }
     
     

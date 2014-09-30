@@ -10,94 +10,37 @@ package pos;
  * @author Mitch
  */
 public class Register {
-    private final FakeDB dB = new FakeDB();
-    private DiscountManager discount;
-    private ReceiptManager receipt;
-    private String itemNumber;
-    private Product product;
-    private String custID;
-    private int qty;
     
-    private String custName;
+   
+    private Receipt receipt;
+    
+    
 
-    public Register( String itemNumber, String custID, int qty) {
-        
-        this.itemNumber = itemNumber;
-        this.custID = custID;
-        this.qty = qty;
+    public Register(Receipt receipt) {
+        this.receipt = receipt;
     }
     
-    public void setDiscountType(DiscountManager discount){
-        this.discount = discount;
-    }
-    public void setReceiptType(ReceiptManager receipt){
+
+    
+    
+    public void setReceiptType(Receipt receipt){
         this.receipt = receipt;
     }
             
-    public void lookAtDB(int t){
-        System.out.println(this.dB.custID[t]);
-    }
     
-    public void lookupItemPriceAndName(){
-        
-       product =  dB.findProduct(itemNumber);
-         
-        }
-             
+   
+   public void addProduct(String productNumber, int qty){
+       receipt.addItem(productNumber, qty);
+   }
+  
+
+    public void getReceipt() {
+        receipt.printReceit();
     }
-    
-    public void lookupCustomerName(){
-        for(int i=0; i < 3;i++){
-            
-            if(this.custID.equals(this.dB.custID[i])){
-               
-                this.custName = dB.getCustName(i);
-                
-                break;
-            }
-            
-            
-            
-        }
-             if(this.custName == null){
-          throw new IllegalArgumentException(
-                    "Customer ID does not exist in our DataBase.");
-            }
-    
-    }
+
    
 
-    public DiscountManager getDiscount() {
-        return discount;
-    }
-
-    public ReceiptManager getReceipt() {
-        return receipt;
-    }
-
-    public String getItemNumber() {
-        return itemNumber;
-    }
-
-    public String getCustID() {
-        return custID;
-    }
-
-    public int getQty() {
-        return qty;
-    }
-
-    public double getItemPrice() {
-        return itemPrice;
-    }
-
-    public String getItemName() {
-        return itemName;
-    }
-
-    public String getCustName() {
-        return custName;
-    }
+   
 
     
     

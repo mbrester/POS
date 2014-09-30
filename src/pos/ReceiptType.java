@@ -10,6 +10,9 @@ package pos;
  * @author Mitch
  */
 public interface ReceiptType {
-    public void printReceit();
+    public abstract void printReceit();
+    public abstract void addToArry(LineItem item);
+    public abstract void lookupCustomer();
+    public abstract void addLineItem(String productNumber, int qty);
     
 }
