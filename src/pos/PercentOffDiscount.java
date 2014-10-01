@@ -11,6 +11,7 @@ package pos;
  */
 public class PercentOffDiscount implements DiscountStrategy {
     private double discountPercent;
+    private double discountedPrice;
 
     public PercentOffDiscount(double discountPercent) {
         this.discountPercent = discountPercent;
@@ -28,7 +29,8 @@ public class PercentOffDiscount implements DiscountStrategy {
 
     @Override
     public double getDiscountedPrice(double itemPrice) {
-        return itemPrice * discountPercent;
+        discountedPrice = itemPrice - (itemPrice *discountPercent);
+        return discountedPrice;
     }
     
    

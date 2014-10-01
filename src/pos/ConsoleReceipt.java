@@ -17,7 +17,8 @@ public class ConsoleReceipt implements ReceiptType{
     private LineItem temp = new LineItem();
     private final FakeDB dB = new FakeDB();
     private double subtotal;
-    private double discount;
+    private double grandTotal;
+    private double totalDiscount;
     
     public ConsoleReceipt( String productNumber, String custID, int qty) {
         this.custID = custID;
@@ -40,6 +41,7 @@ public class ConsoleReceipt implements ReceiptType{
     
     @Override
     public void printReceit() {
+        System.out.println(customer.getCustName());
         System.out.println(lineItem[0].getProduct().getDiscountedPrice());
     }
 

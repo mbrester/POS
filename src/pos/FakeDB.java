@@ -29,17 +29,18 @@ public class FakeDB {
     }
     
     private Customer [] customers = {
-       new Customer("aaa","Bob"),
-       new Customer("bbb","Tom"),
-       new Customer("ccc","Rob")
+       new Customer("aaa","Bob Brian"),
+       new Customer("bbb","Tom McGee"),
+       new Customer("ccc","Rob Robertson")
     };
     private Customer customer;
     public Customer findCustomer(String custId){
         for (int i = 0; i<customers.length;i++){
-            if(custId.equals(customers[i])){
+            if(custId.equals(customers[i].getCustID())){
+                
                 customer = customers[i];
                 
-                break;
+               
             }
                 
         }

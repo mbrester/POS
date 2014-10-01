@@ -11,6 +11,7 @@ package pos;
  */
 public class FlatRateDiscount implements DiscountStrategy {
     private double discount;
+    private double discountedPrice;
 
     public FlatRateDiscount(double discount) {
         this.discount = discount;
@@ -34,8 +35,8 @@ public class FlatRateDiscount implements DiscountStrategy {
 
     @Override
     public double getDiscountedPrice(double itemPrice) {
-        itemPrice += -discount;
-        return itemPrice;
+       discountedPrice = itemPrice -discount;
+        return discountedPrice;
     }
     
 }
