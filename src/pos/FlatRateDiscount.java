@@ -25,10 +25,14 @@ public class FlatRateDiscount implements DiscountStrategy {
      * @param discount the amount that is discounted, it is a flat rate.
      */
     public void setDiscount(double discount) {
+        if(discount < 0|| discount > 100){
+            throw new IllegalArgumentException();
+        }
         this.discount = discount;
     }
 
     
+    @Override
     public double getDiscount() {
         return discount;
     }

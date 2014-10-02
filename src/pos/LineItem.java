@@ -14,11 +14,11 @@ public class LineItem {
     private final FakeDB dB = new FakeDB();
     private Product product;
     private int qty;
-    private String productNumber;
+   
 
     public LineItem(Product product, int qty) {
-        this.product = product;
-        this.qty = qty;
+        setProduct(product);
+        setQty(qty);
     }
 
     public LineItem() {
@@ -27,9 +27,9 @@ public class LineItem {
     
     public LineItem addLineItem(String productNumber, int qty){
        
+        
        
        LineItem lineItem = new LineItem(dB.findItem(productNumber),qty);
-//        System.out.println(lineItem.productNumber);
         return lineItem;
     }
 
@@ -38,6 +38,9 @@ public class LineItem {
     }
 
     public void setProduct(Product product) {
+        if(product == null){
+            throw new IllegalArgumentException();
+        }
         this.product = product;
     }
 
@@ -46,15 +49,37 @@ public class LineItem {
     }
 
     public void setQty(int qty) {
+        if(qty <1 || qty >5000){
+            throw new IllegalArgumentException();
+        }
         this.qty = qty;
     }
 
     public String getProductNumber() {
-        return productNumber;
+        return product.getProductNumber();
     }
-
-    public void setProductNumber(String productNumber) {
-        this.productNumber = productNumber;
+    
+    public double getProductPrice(){
+       return product.getProductPrice() * qty;
     }
+    public String getProductName(){
+        return product.getProductName();
+    }
+    public double getDiscountedPrice(){
+        return product.getDiscountedPrice()* qty;
+    }
+    public double getDiscount(){
+        return product.getDiscount()* qty;
+    }
+    public String getLineItemData() {
+     
+        
+        return 
+                product.getProductNumber() + "\t            " + getProductName()
+                + "\t   " + qty + "\t\t  " + getProductPrice() + "\t             "
+                + getDiscount()+ "\t";
+    }
+    
+    
     
 }

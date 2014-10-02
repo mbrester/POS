@@ -15,6 +15,7 @@ public class Product {
     private double productPrice;
     private DiscountStrategy dS;
     private double discountedPrice;
+    private double discount;
 
     public Product(String itemNumber, String itemName, double itemPrice, DiscountStrategy dS) {
         this.productNumber = itemNumber;
@@ -29,6 +30,7 @@ public class Product {
     public String getProductNumber() {
         
         return productNumber;
+        
     }
 
     public void setProductNumber(String productNumber) {
@@ -61,11 +63,14 @@ public class Product {
     }
     private void dicountItems(){
       this.discountedPrice = dS.getDiscountedPrice(productPrice);
-      
     }
 
     public double getDiscountedPrice() {
         return discountedPrice;
+    }
+
+    public double getDiscount() {
+        return dS.getDiscount();
     }
     
     

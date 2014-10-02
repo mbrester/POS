@@ -11,7 +11,7 @@ package pos;
  */
 public interface DiscountStrategy {
     public double getDiscountedPrice(double itemPrice);
-    
+    public double getDiscount();
     
     
 }

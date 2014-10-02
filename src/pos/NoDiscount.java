@@ -17,6 +17,11 @@ public class NoDiscount  implements DiscountStrategy{
         return itemPrice;
     }
 
+    @Override
+    public double getDiscount() {
+        return 0;
+    }
+
    
   
     

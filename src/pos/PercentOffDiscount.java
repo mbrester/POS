@@ -12,9 +12,10 @@ package pos;
 public class PercentOffDiscount implements DiscountStrategy {
     private double discountPercent;
     private double discountedPrice;
+    private double itemPrice;
 
     public PercentOffDiscount(double discountPercent) {
-        this.discountPercent = discountPercent;
+        setDiscountPercent(discountPercent);
     }
     
     
@@ -24,13 +25,22 @@ public class PercentOffDiscount implements DiscountStrategy {
     }
 
     public void setDiscountPercent(double discountPercent) {
+        if(discountPercent < 0 || discountPercent > 1){
+            throw new IllegalArgumentException();
+        }
         this.discountPercent = discountPercent;
     }
 
     @Override
     public double getDiscountedPrice(double itemPrice) {
+        this.itemPrice = itemPrice;
         discountedPrice = itemPrice - (itemPrice *discountPercent);
         return discountedPrice;
+    }
+
+    @Override
+    public double getDiscount() {
+       return (itemPrice * discountPercent);
     }
     
    

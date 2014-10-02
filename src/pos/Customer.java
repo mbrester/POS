@@ -15,7 +15,7 @@ public class Customer {
     private String custID;
 
     public Customer(String custID, String custName) {
-        this.custName = custName;
+        setCustName(custName);
         this.custID = custID;
     }
 
@@ -23,7 +23,10 @@ public class Customer {
         return custName;
     }
 
-    public void setCustName(String custName) {
+    public void setCustName(String custName){
+        if(custName.isEmpty()){
+            throw new IllegalArgumentException();
+        }
         this.custName = custName;
     }
 
@@ -32,6 +35,9 @@ public class Customer {
     }
 
     public void setCustID(String custID) {
+        if(custID.isEmpty()){
+            throw new IllegalArgumentException();
+        }
         this.custID = custID;
     }
     
